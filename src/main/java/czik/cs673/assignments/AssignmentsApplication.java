@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // import czik.cs673.assignments.assignment1.PalindromeValidator;
 // import czik.cs673.assignments.assignment1.ListInterpolator;
 // import czik.cs673.assignments.assignment1.FibbonacciCalculator;
+// import czik.cs673.assignments.assignment1.LeapYearValidator;
 
 @SpringBootApplication
 public class AssignmentsApplication {
@@ -17,6 +18,7 @@ public class AssignmentsApplication {
 		// PalindromeValidator.run(args);
 		// ListInterpolator.run(args);
 		// FibbonacciCalculator.run(args);
+		// LeapYearValidator.run(args);
 	}
 
 }

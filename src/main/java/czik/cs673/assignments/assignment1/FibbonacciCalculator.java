@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class FibbonacciCalculator {
     public static void run(String[] args) {
         BigInteger[] values = new BigInteger[100];
+        System.out.println("--- Fibbonacci Sequence Calculator ---");
         try {
             for (int i = 0; i < values.length; i++) {
                 if (i <= 1) {
