@@ -6,10 +6,10 @@ public class LeapYearValidator {
     public static void run(String[] args) {
         try (Scanner inputScanner = new Scanner(System.in)) {
             boolean isLeapYear = false;
-            System.out.println("Enter a year >= 1582:");
+            System.out.println("Enter a year:");
             Integer yearValue = inputScanner.nextInt();
 
-            if (yearValue >= 1582 && yearValue % 4 == 0) {
+            if (yearValue % 4 == 0) {
                 if (yearValue % 100 == 0) {
                     if (yearValue % 400 == 0) {
                         isLeapYear = true;
