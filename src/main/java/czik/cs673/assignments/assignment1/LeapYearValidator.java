@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class LeapYearValidator {
     public static void run(String[] args) {
+        System.out.println("--- Leap Year Validator ---");
+
         try (Scanner inputScanner = new Scanner(System.in)) {
             boolean isLeapYear = false;
             System.out.println("Enter a year:");

@@ -15,6 +15,7 @@ public class PalindromeValidator {
             System.out.println("Enter string to validate (or 'q' to quit):");
             String inputValue = inputScanner.nextLine().toLowerCase();
             while (!inputValue.equals(QUIT)) {
+                isPalindrome = true;
                 if (inputValue.length() > 0) {
                     Stack<Character> charStack = new Stack<>();
                     boolean inputHasEvenLength = (inputValue.length() % 2 == 0);
@@ -22,7 +23,7 @@ public class PalindromeValidator {
                             : inputValue.length() / 2;
 
                     for (int i = 0; i < inputValue.length(); i++) {
-                        char currentCharacter = inputValue.charAt(i);
+                        Character currentCharacter = inputValue.charAt(i);
                         if (i < pivotCharacterIndex) {
                             charStack.push(currentCharacter);
                         } else if (i == pivotCharacterIndex && inputHasEvenLength) {

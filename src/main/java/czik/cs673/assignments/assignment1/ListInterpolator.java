@@ -32,6 +32,8 @@ public class ListInterpolator {
                 builder.append("]");
 
                 System.out.println(builder.toString());
+            } else {
+                System.out.println("Input lists are not of equal length, exiting...");
             }
         } catch (Exception e) {
             System.out.println(String.format("Exception: %s", e.getMessage()));
