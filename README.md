@@ -8,6 +8,5 @@ The two web pages for this assignment are run from the same application.
 Run from project root
 
 #### `mvn spring-boot:run`
-Runs the app in the development mode.\
 Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
 

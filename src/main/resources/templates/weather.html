@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>CS673: Weather Report</title>
+</head>
+
+<body>
+    <h1>Weather Report</h1>
+
+    <form method="GET" th:action="@{/weather/request}" th:object="${weatherRequest}">
+
+        <label for="cityName">City: </label>
+        <input type="text" th:field="*{cityName}" />
+        <br />
+
+        <label for="zipCode">ZIP: </label>
+        <input type="text" th:field="*{zipCode}" />
+        <br />
+
+        <input type="submit" value="Check the Weather">
+    </form>
+    <br />
+    <div>
+        <h2>Current Conditions:</h2>
+        <span th:text="${weatherResponse.name}"></span>
+    </div>
+    <br />
+    <a th:href="@{/}" id="home">Back to Assignment Home</a>
+</body>
+
+</html>
