@@ -8,6 +8,15 @@
 <body>
     <a th:href="@{/}" id="home">Back to Assignment Home</a>
     <h1>Quotes</h1>
+    <form method="GET" th:action="@{/quotes/request}">
+        <input type="submit" value="Display a quote">
+    </form>
+    <div th:if="${quoteResponse.quoteText} != null">
+        <span th:text="${quoteResponse.quoteText}"></span>
+        </br>
+        <span th:text="${quoteResponse.quoteAuthor}"></span>
+        </br>
+    </div>
 </body>
 
 </html>
