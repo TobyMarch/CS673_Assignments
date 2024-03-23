@@ -37,20 +37,20 @@ public class WeatherController {
 
     @ModelAttribute(name = "weatherResponse")
     public OpenWeatherResponse response() {
-        return weatherResponse;
+        return (weatherResponse != null) ? weatherResponse : new OpenWeatherResponse();
     }
 
     @GetMapping("/request")
     public String sendWeatherRequest(WeatherRequest request, SessionStatus sessionStatus) {
         try {
-            logger.info(
+            logger.debug(
                     String.format("Request Received: {City: %s, ZIP: %s}", request.getCityName(),
                             request.getZipCode()));
             OpenWeatherResponse response = weatherService.retrieveWeatherData(request);
             this.weatherResponse = response;
             sessionStatus.setComplete();
         } catch (Exception e) {
-            // TODO: handle exception
+            logger.error("Exception in Weather controller: ", e);
         }
 
         return "redirect:/weather";

@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <a th:href="@{/}" id="home">Back to Assignment Home</a>
     <h1>Weather Report</h1>
 
     <form method="GET" th:action="@{/weather/request}" th:object="${weatherRequest}">
@@ -21,12 +22,14 @@
         <input type="submit" value="Check the Weather">
     </form>
     <br />
-    <div>
-        <h2>Current Conditions:</h2>
+    <div th:if="${weatherResponse.name} != null">
+        <h3>Current Conditions:</h3>
         <span th:text="${weatherResponse.name}"></span>
+        </br>
+        <span th:text="${weatherResponse.weather[0].description}"></span>
+        </br>
+        <span th:text="${weatherResponse.main.feels_like}"></span>
     </div>
-    <br />
-    <a th:href="@{/}" id="home">Back to Assignment Home</a>
 </body>
 
 </html>
