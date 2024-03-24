@@ -10,12 +10,12 @@
     <h1>Quotes</h1>
     <form method="GET" th:action="@{/quotes/request}">
         <input type="submit" value="Display a quote">
-    </form>
+    </form> <br />
     <div th:if="${quoteResponse.quoteText} != null">
-        <span th:text="${quoteResponse.quoteText}"></span>
-        </br>
-        <span th:text="${quoteResponse.quoteAuthor}"></span>
-        </br>
+        <p>"<span th:text="${quoteResponse.quoteText}"></span>"<br />
+            <span th:if="${quoteResponse.quoteAuthor} != ''"> - </span>
+            <span th:text="${quoteResponse.quoteAuthor}"></span>
+        </p>
     </div>
 </body>
 

@@ -25,7 +25,7 @@ public class QuoteService {
 
             return responseObj;
         } catch (Exception e) {
-            logger.error("Exception thrown in Prismatic request: ", e);
+            logger.error("Exception thrown in Prismatic request: {}", e.getMessage());
         }
         return null;
     }
