@@ -30,10 +30,10 @@
         <label for="weatherDescription">Description: </label>
         <span th:text="${weatherResponse.weather[0].description}"></span>
         </br>
-        <label for="weatherDescription">Temperature: </label>
+        <label for="currentTemperature">Temperature: </label>
         <span th:text="${weatherResponse.main.temp}"></span>°F
         </br>
-        <label for="weatherDescription">Feels Like: </label>
+        <label for="feelsLikeTemperature">Feels Like: </label>
         <span th:text="${weatherResponse.main.feels_like}"></span>°F
     </div>
 </body>
