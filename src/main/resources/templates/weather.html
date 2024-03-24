@@ -13,24 +13,28 @@
 
         <label for="cityName">City: </label>
         <input type="text" th:field="*{cityName}" />
-        <br />
+        </br>
 
         <label for="zipCode">ZIP: </label>
         <input type="text" th:field="*{zipCode}" />
-        <br />
+        </br>
 
         <input type="submit" value="Check the Weather">
     </form>
-    <br />
+    </br>
     <div th:if="${weatherResponse.name} != null">
-        <h3>Current Conditions:</h3>
+        <strong>Current Conditions:</strong></br>
+        <label for="locationName">Location: </label>
         <span th:text="${weatherResponse.name}"></span>
         </br>
+        <label for="weatherDescription">Description: </label>
         <span th:text="${weatherResponse.weather[0].description}"></span>
         </br>
-        <span th:text="${weatherResponse.main.temp}"></span>
+        <label for="weatherDescription">Temperature: </label>
+        <span th:text="${weatherResponse.main.temp}"></span>°F
         </br>
-        <span th:text="${weatherResponse.main.feels_like}"></span>
+        <label for="weatherDescription">Feels Like: </label>
+        <span th:text="${weatherResponse.main.feels_like}"></span>°F
     </div>
 </body>
 
