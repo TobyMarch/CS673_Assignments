@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import czik.cs673.assignments.assignment4.model.PrismaticResponse;
+import czik.cs673.assignments.assignment4.model.ZenQuotesResponse;
 import czik.cs673.assignments.assignment4.services.QuoteService;
 
 @Controller
@@ -19,7 +20,7 @@ import czik.cs673.assignments.assignment4.services.QuoteService;
 public class QuoteController {
     Logger logger = LogManager.getLogger(QuoteController.class);
 
-    private PrismaticResponse quoteResponse;
+    private ZenQuotesResponse quoteResponse;
 
     @Autowired
     QuoteService quoteService;
@@ -30,8 +31,8 @@ public class QuoteController {
     }
 
     @ModelAttribute(name = "quoteResponse")
-    public PrismaticResponse response() {
-        return quoteResponse != null ? quoteResponse : new PrismaticResponse();
+    public ZenQuotesResponse response() {
+        return quoteResponse != null ? quoteResponse : new ZenQuotesResponse();
     }
 
     @GetMapping("/request")

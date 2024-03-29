@@ -11,11 +11,13 @@
     <form method="GET" th:action="@{/quotes/request}">
         <input type="submit" value="Display a quote">
     </form> </br>
-    <div th:if="${quoteResponse.quoteText} != null">
-        <p>"<span th:text="${quoteResponse.quoteText}"></span>"</br>
-            <span th:if="${quoteResponse.quoteAuthor} != ''"> - </span>
-            <span th:text="${quoteResponse.quoteAuthor}"></span>
+    <div th:if="${quoteResponse.q} != null">
+        <p>"<span th:text="${quoteResponse.q}"></span>"</br>
+            <span th:if="${quoteResponse.a} != ''"> - </span>
+            <span th:text="${quoteResponse.a}"></span>
         </p>
+        <p>(If the requests get rate-limited just wait 30 seconds)</p>
+        <p>Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a></p>
     </div>
 </body>
 
