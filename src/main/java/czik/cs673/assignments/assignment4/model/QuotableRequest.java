@@ -7,10 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ZenQuotesResponse {
-    private String q;
-
-    private String a;
-
-    private String h;
+public class QuotableRequest {
+    private String query;
 }

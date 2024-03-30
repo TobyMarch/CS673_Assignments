@@ -8,16 +8,17 @@
 <body>
     <a th:href="@{/}" id="home">Back to Assignment Home</a>
     <h1>Quotes</h1>
-    <form method="GET" th:action="@{/quotes/request}">
+    <form method="GET" th:action="@{/quotes/request}" th:object="${quoteRequest}">
+        <label for="quoteTopic">Topic: </label>
+        <input type="text" th:field="*{query}" />
+        </br>
         <input type="submit" value="Display a quote">
     </form> </br>
-    <div th:if="${quoteResponse.q} != null">
-        <p>"<span th:text="${quoteResponse.q}"></span>"</br>
-            <span th:if="${quoteResponse.a} != ''"> - </span>
-            <span th:text="${quoteResponse.a}"></span>
+    <div th:if="${quoteResponse.content} != null">
+        <p>"<span th:text="${quoteResponse.content}"></span>"</br>
+            <span th:if="${quoteResponse.author} != ''"> - </span>
+            <span th:text="${quoteResponse.author}"></span>
         </p>
-        <p>(If the requests get rate-limited just wait 30 seconds)</p>
-        <p>Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a></p>
     </div>
 </body>
 

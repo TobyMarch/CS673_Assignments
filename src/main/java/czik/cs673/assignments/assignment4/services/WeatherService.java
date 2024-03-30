@@ -1,5 +1,7 @@
 package czik.cs673.assignments.assignment4.services;
 
+import java.util.Optional;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,7 @@ public class WeatherService {
     Logger logger = LogManager.getLogger(WeatherService.class);
 
     @SuppressWarnings("null")
-    public OpenWeatherResponse retrieveWeatherData(WeatherRequest request) {
+    public Optional<OpenWeatherResponse> retrieveWeatherData(WeatherRequest request) {
         if (validRequest(request)) {
             RestClient restClient = RestClient.create();
             try {
@@ -32,16 +34,16 @@ public class WeatherService {
 
                 OpenWeatherResponse responseObj = restClient.get().uri(builder.toString()).retrieve()
                         .body(OpenWeatherResponse.class);
-                logger.info(responseObj.toString());
-
-                return responseObj;
+                logger.info("{}", responseObj.toString());
+                return (responseObj != null && !responseObj.getWeather().isEmpty()) ? Optional.of(responseObj)
+                        : Optional.empty();
             } catch (HttpClientErrorException e) {
-                logger.info("{}", e.getMessage());
+                logger.info("HTTP error: {}", e.getMessage());
             } catch (Exception e) {
-                logger.error("Exception thrown in OpenWeather request: ", e);
+                logger.error("Exception thrown in OpenWeather request: ", e.getMessage());
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     private boolean validRequest(WeatherRequest request) {

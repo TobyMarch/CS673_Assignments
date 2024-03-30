@@ -1,6 +1,9 @@
 # CS673 Assignments
 All of my homework assignments for the spring 2024 semester in one place
 
+# Assignment 1
+Call each class's run() function from the AssignmentsApplication main method.
+
 # Assignment 4
 The two web pages for this assignment are run from the same application.
 

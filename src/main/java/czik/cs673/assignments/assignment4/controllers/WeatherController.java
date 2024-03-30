@@ -1,5 +1,7 @@
 package czik.cs673.assignments.assignment4.controllers;
 
+import java.util.Optional;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,11 +45,13 @@ public class WeatherController {
     @GetMapping("/request")
     public String sendWeatherRequest(WeatherRequest request, SessionStatus sessionStatus) {
         try {
-            logger.debug(
-                    String.format("Request Received: {City: %s, ZIP: %s}", request.getCityName(),
-                            request.getZipCode()));
-            OpenWeatherResponse response = weatherService.retrieveWeatherData(request);
-            this.weatherResponse = response;
+            Optional<OpenWeatherResponse> response = weatherService.retrieveWeatherData(request);
+            if (response.isPresent()) {
+                this.weatherResponse = response.get();
+            } else {
+                this.weatherResponse = null;
+            }
+
             sessionStatus.setComplete();
         } catch (Exception e) {
             logger.error("Exception in Weather controller: ", e);
